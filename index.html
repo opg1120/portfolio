@@ -1,60 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opinder Singh Gill | IT Support & Network Technician</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        header {
-            background-color: #1f2937;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-        }
-        h1, h2 {
-            margin-bottom: 10px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .contact {
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #1f2937;
-            color: white;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opinder Singh Gill | IT Support</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #1f2937, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+/* SECTIONS */
+section {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+h2 {
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #1e40af;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1f2937;
+    color: white;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
 <header>
     <h1>Opinder Singh Gill</h1>
     <p>IT Support & Network Technician</p>
+    <p>📞 873-662-4573 | 📧 opg1120@gmail.com</p>
 </header>
 
 <section>
-    <h2>About Me</h2>
+    <h2>Professional Summary</h2>
     <p>
-        CCNA-certified Network Technician with experience in troubleshooting network systems,
-        supporting users, and configuring devices. Passionate about IT support, cybersecurity,
-        and improving system efficiency. Currently expanding skills in Microsoft 365,
-        SharePoint, and web technologies.
+        CCNA-certified Network Technician with experience in troubleshooting, networking,
+        and IT support. Passionate about cybersecurity, Microsoft 365, and improving system efficiency.
     </p>
 </section>
 
@@ -62,19 +108,10 @@
     <h2>Technical Skills</h2>
     <ul>
         <li>Networking: TCP/IP, VLANs, DHCP, DNS</li>
-        <li>IT Support: Troubleshooting hardware, software, connectivity issues</li>
-        <li>Tools: Wireshark, Nmap, VMware, VirtualBox</li>
-        <li>Microsoft 365: Teams, OneDrive (basic), SharePoint (learning)</li>
-        <li>Web: HTML, CSS (basic)</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Projects</h2>
-    <ul>
-        <li><strong>Home Lab Network:</strong> Simulated networks using VMware for testing and troubleshooting</li>
-        <li><strong>Network Analysis:</strong> Practiced packet analysis using Wireshark</li>
-        <li><strong>Basic Website:</strong> Built this personal portfolio using HTML and CSS</li>
+        <li>IT Support: Hardware, software, connectivity troubleshooting</li>
+        <li>Tools: Wireshark, Nmap, VMware</li>
+        <li>Microsoft 365: Teams, OneDrive (learning SharePoint)</li>
+        <li>Web: HTML, CSS</li>
     </ul>
 </section>
 
@@ -82,23 +119,30 @@
     <h2>Experience</h2>
     <p><strong>Network Technician – Bell Canada</strong></p>
     <ul>
-        <li>Installed and supported fiber and Ethernet-based internet services</li>
-        <li>Troubleshot connectivity and network performance issues</li>
-        <li>Configured routers, modems, and IP settings</li>
+        <li>Installed and supported fiber and Ethernet networks</li>
+        <li>Troubleshot connectivity issues and improved performance</li>
+        <li>Configured routers and IP settings</li>
     </ul>
 
     <p><strong>Electrical Assembler – Regulvar Inc.</strong></p>
     <ul>
-        <li>Assembled control panels and structured cabling systems</li>
-        <li>Followed technical schematics and safety standards</li>
+        <li>Wired control panels and structured cabling systems</li>
     </ul>
 </section>
 
-<section class="contact">
+<section>
+    <h2>Projects</h2>
+    <ul>
+        <li>Home Lab Network using VMware</li>
+        <li>Network analysis using Wireshark</li>
+        <li>Personal portfolio website</li>
+    </ul>
+</section>
+
+<section style="text-align:center;">
     <h2>Contact</h2>
     <p>Email: opg1120@gmail.com</p>
-    <p>Phone: 873-662-4573</p>
-    <p>Location: Ottawa, ON</p>
+    <a href="#" class="btn">Download Resume</a>
 </section>
 
 <footer>
