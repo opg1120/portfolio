@@ -3,189 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opinder Singh Gill | Portfolio</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+<title>Opinder Singh Gill - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
-body { background: #0a0a0a; color: #fff; overflow-x:hidden; transition: all 0.5s; }
+/* ===== GLOBAL STYLES ===== */
+body {
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
+    color: #fff;
+    line-height: 1.6;
+}
+a { color:#00ffff; text-decoration:none; }
+a:hover { text-decoration: underline; }
 
-/* ===== PARTICLES ===== */
-#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+/* ===== HEADER ===== */
+header {
+    text-align:center;
+    padding:50px 20px 20px;
+}
+header h1 { font-size:2.5rem; margin:0; }
+header p { margin:5px 0; font-size:1.1rem; color:#ccc; }
 
-/* ===== LOADER ===== */
-#loader {
-    position: fixed; width: 100%; height: 100%;
-    background: #000; color: cyan;
-    display:flex; justify-content:center; align-items:center; z-index:9999;
-    font-size:2rem;
+/* ===== BUTTONS ===== */
+.button {
+    display:inline-block;
+    margin:10px 5px;
+    padding:10px 20px;
+    border:2px solid #00ffff;
+    border-radius:5px;
+    color:#00ffff;
+    font-weight:bold;
+    transition: all 0.3s ease;
+}
+.button:hover {
+    background:#00ffff;
+    color:#1e1e2f;
+    transform: scale(1.05);
 }
 
-/* ===== NAVBAR ===== */
-nav { display:flex; justify-content:space-between; padding:20px; background:#111; }
-nav a { color:#fff; text-decoration:none; margin:0 10px; }
-nav button { padding:5px 10px; cursor:pointer; }
-
-/* ===== TERMINAL INTRO ===== */
-.terminal {
-    background:#111; color:lime; font-family:monospace;
-    padding:20px; width:80%; margin:40px auto; border-radius:10px;
-    animation: fadeIn 2s ease forwards;
+/* ===== SECTION STYLING ===== */
+section {
+    max-width:900px;
+    margin:50px auto;
+    padding:20px;
+    background: rgba(30,30,50,0.85);
+    border-radius:15px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    animation: fadeUp 1s ease;
 }
-@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+section h2 {
+    border-bottom: 2px solid #00ffff;
+    padding-bottom:5px;
+}
 
-/* ===== SKILLS ===== */
-#skills { padding:40px; text-align:center; }
-.skill { margin:20px auto; width:80%; }
-.bar { width:100%; background:#333; border-radius:10px; }
-.fill { height:12px; background:cyan; border-radius:10px; transition:1s; }
+/* ===== CARDS ===== */
+.card {
+    background: rgba(0,255,255,0.05);
+    margin:15px 0;
+    padding:15px;
+    border-left: 4px solid #00ffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00ffff;
+}
 
-/* ===== STATS COUNTER ===== */
-#stats { display:flex; justify-content:center; margin:40px 0; }
-.stat { margin:20px; text-align:center; }
-.stat h2 { font-size:3rem; color:cyan; }
-.stat p { font-size:1rem; }
+/* ===== LISTS ===== */
+ul { padding-left:20px; }
+li { margin-bottom:8px; }
 
-/* ===== PROJECT CARDS ===== */
-#projects { display:flex; flex-wrap:wrap; justify-content:center; padding:40px; }
-.card { background:#111; margin:20px; width:300px; border-radius:10px; overflow:hidden; transition:0.3s; }
-.card:hover { transform: scale(1.05); box-shadow: 0 0 20px cyan; }
-.card img { width:100%; }
-.card h3 { padding:10px; }
-.card p { padding:0 10px 10px 10px; }
-.card .btn { display:block; margin:10px; padding:10px; text-align:center; background:cyan; color:#000; text-decoration:none; border-radius:5px; }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to { opacity:1; transform: translateY(0); }
+}
 
-/* ===== MODAL ===== */
-.modal { display:none; position:fixed; width:100%; height:100%; background: rgba(0,0,0,0.9); }
-.modal-content { background:#222; padding:20px; margin:10% auto; width:50%; border-radius:10px; }
-.modal-content span { float:right; cursor:pointer; color:red; font-size:1.5rem; }
-
-/* ===== TERMINAL & BODY ANIMATIONS ===== */
-.light { background:#fff; color:#000; }
-.light .fill { background:blue; }
-
-/* ===== CURSOR GLOW ===== */
-.glow { position:fixed; width:10px; height:10px; background:cyan; border-radius:50%; pointer-events:none; }
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){ #stats { flex-direction:column; } .card { width:80%; } }
+/* ===== FOOTER ===== */
+footer {
+    text-align:center;
+    padding:30px 10px;
+    font-size:0.9rem;
+    color:#aaa;
+    border-top:1px solid #00ffff;
+}
 </style>
 </head>
-
 <body>
-<!-- LOADER -->
-<div id="loader">Loading Portfolio...</div>
 
-<!-- PARTICLES -->
-<div id="particles-js"></div>
+<header>
+    <h1>Opinder Singh Gill</h1>
+    <p>IT Support & Network Technician | CCNA Certified</p>
+    <p>📍 Ottawa, ON</p>
+    <p>
+        🌐 <a href="https://opg1120.github.io/portfolio/" target="_blank">Portfolio</a> | 
+        💻 <a href="https://github.com/opg1120" target="_blank">GitHub</a>
+    </p>
+</header>
 
-<!-- NAVBAR -->
-<nav>
-    <div>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="https://github.com/opg1120" target="_blank">GitHub</a>
-        <a href="https://opg1120.github.io/portfolio/" target="_blank">Portfolio</a>
-    </div>
-    <button onclick="toggleMode()">🌗</button>
-</nav>
+<!-- PROFESSIONAL SUMMARY -->
+<section>
+<h2>Professional Summary</h2>
+<p>IT Support and Network Technician with hands-on experience in troubleshooting, network configuration, and system support. Experienced in supporting end users, managing devices, and maintaining reliable IT environments. Familiar with Active Directory concepts, virtualization, and Microsoft 365 tools, with growing experience in SharePoint and system administration. Strong problem-solving skills with a focus on improving system performance and reliability.</p>
+</section>
 
-<!-- TERMINAL INTRO -->
-<div class="terminal">
-    <p>&gt; Initializing portfolio...</p>
-    <p>&gt; Loading skills...</p>
-    <p>&gt; Welcome, Recruiter 👋</p>
+<!-- TECHNICAL SKILLS -->
+<section>
+<h2>Technical Skills</h2>
+<div class="card">
+<strong>System Administration:</strong> Active Directory (basic), Group Policy (basic), Windows environments
 </div>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2>My Skills</h2>
-<div class="skill">
-    <p>Networking</p>
-    <div class="bar"><div class="fill" style="width:90%"></div></div>
+<div class="card">
+<strong>IT Support:</strong> Hardware, software, and connectivity troubleshooting, end-user support (Level 1/2)
 </div>
-<div class="skill">
-    <p>IT Support</p>
-    <div class="bar"><div class="fill" style="width:85%"></div></div>
+<div class="card">
+<strong>Networking:</strong> TCP/IP, VLANs, DHCP, DNS, NAT, router/switch configuration
 </div>
-<div class="skill">
-    <p>Virtualization</p>
-    <div class="bar"><div class="fill" style="width:75%"></div></div>
+<div class="card">
+<strong>Virtualization:</strong> VMware, VirtualBox (lab environments, system simulation)
+</div>
+<div class="card">
+<strong>Microsoft 365:</strong> Teams, OneDrive, SharePoint (basic)
+</div>
+<div class="card">
+<strong>Security & Tools:</strong> Network segmentation, basic threat awareness, Wireshark, Nmap, Python (basic), Visio
 </div>
 </section>
 
-<!-- STATS COUNTER -->
-<section id="stats">
-    <div class="stat"><h2 id="exp">0</h2><p>Years Experience</p></div>
-    <div class="stat"><h2 id="projectsCount">0</h2><p>Projects</p></div>
-    <div class="stat"><h2 id="skillsCount">0</h2><p>Skills</p></div>
+<!-- PROFESSIONAL EXPERIENCE -->
+<section>
+<h2>Professional Experience</h2>
+
+<div class="card">
+<strong>Regulvar Inc. – Electrical Assembler | Ottawa, ON | Oct 2025 – Present</strong>
+<ul>
+<li>Assembled and configured control panels and structured cabling systems.</li>
+<li>Interpreted technical schematics and ensured system accuracy before deployment.</li>
+<li>Identified and resolved technical issues, improving system reliability.</li>
+<li>Collaborated with technical teams to support system integration.</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>Bell Canada – Network Technician | Ottawa, ON | Jul 2023 – May 2025</strong>
+<ul>
+<li>Provided Level 1/2 technical support by diagnosing and resolving network and connectivity issues.</li>
+<li>Configured routers, modems, and IP addressing for stable network performance.</li>
+<li>Performed troubleshooting across hardware, software, and network layers.</li>
+<li>Tested and validated network performance, ensuring reliability and uptime.</li>
+<li>Communicated technical solutions effectively to non-technical users.</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>Apply Abroad Consultants – Administrative Clerk | India | Jun 2019 – Jan 2020</strong>
+<ul>
+<li>Managed documentation and maintained organized records.</li>
+<li>Supported operational workflows and communication processes.</li>
+</ul>
+</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section>
+<h2>Projects</h2>
+
 <div class="card">
-    <img src="network.jpg" alt="Home Lab Network">
-    <h3>Home Lab Network</h3>
-    <p>Simulated enterprise network using VMware.</p>
-    <a href="https://opg1120.github.io/portfolio/" target="_blank" class="btn">Live Demo</a>
+<strong>Home Lab – System & Network Simulation</strong>
+<ul>
+<li>Built virtual lab environments using VMware to simulate network and system configurations.</li>
+<li>Practiced system administration tasks including user management and network setup.</li>
+<li>Tested configurations for performance, connectivity, and troubleshooting.</li>
+</ul>
 </div>
 
 <div class="card">
-    <img src="sharepoint.jpg" alt="SharePoint Portal">
-    <h3>SharePoint Intranet (Demo)</h3>
-    <p>Internal portal concept using Microsoft 365 and SharePoint.</p>
-    <a href="#" class="btn" onclick="openModal('sharepoint')">View Details</a>
+<strong>Network Traffic Analysis</strong>
+<ul>
+<li>Used Wireshark and Nmap to analyze traffic patterns and perform network diagnostics.</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>SharePoint Intranet Portal (Concept Project)</strong>
+<ul>
+<li>Designed a company intranet using Microsoft 365 SharePoint concepts.</li>
+<li>Included document libraries, internal communication pages, and IT support resources.</li>
+<li>Focused on improving workflow efficiency and user accessibility.</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>Portfolio Website (GitHub Pages)</strong>
+<ul>
+<li>Developed and deployed a responsive portfolio using HTML and CSS.</li>
+<li>Showcases projects and technical skills.</li>
+<li><a href="https://opg1120.github.io/portfolio/" target="_blank">Visit Portfolio</a></li>
+</ul>
 </div>
 </section>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()">&times;</span>
-    <p id="modal-text"></p>
-  </div>
-</div>
+<!-- CERTIFICATIONS -->
+<section>
+<h2>Certifications</h2>
+<ul>
+<li>Cisco Certified Network Associate (CCNA)</li>
+<li>WHMIS & Safety Training</li>
+</ul>
+</section>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-// ===== PARTICLES =====
-particlesJS("particles-js", {
-  particles: { number: { value:60 }, size:{value:3}, move:{speed:2}, line_linked:{enable:true} }
-});
+<!-- EDUCATION -->
+<section>
+<h2>Education</h2>
+<ul>
+<li>Post-Graduate Diploma – Wireless Information Networking | Sir Sandford Fleming College, ON | 2022</li>
+<li>Bachelor of Technology – Computer Science | Guru Nanak Dev University, India | 2019</li>
+</ul>
+</section>
 
-// ===== LOADER =====
-window.onload = () => { document.getElementById("loader").style.display="none"; };
+<!-- ADDITIONAL LEARNING -->
+<section>
+<h2>Additional Learning</h2>
+<ul>
+<li>Active Directory and Group Policy fundamentals</li>
+<li>Windows Server and system administration concepts</li>
+<li>Virtualization and infrastructure management</li>
+<li>Continuous learning in IT systems and cybersecurity</li>
+</ul>
+</section>
 
-// ===== DARK/LIGHT MODE =====
-function toggleMode() { document.body.classList.toggle("light"); }
+<footer>
+&copy; 2026 Opinder Singh Gill | Built with HTML & CSS | Hosted on GitHub Pages
+</footer>
 
-// ===== MODAL =====
-function openModal(project){
-    const text = {
-        sharepoint: "This is a concept SharePoint intranet portal with document libraries and internal pages."
-    };
-    document.getElementById("modal-text").innerText = text[project];
-    document.getElementById("modal").style.display="block";
-}
-function closeModal(){ document.getElementById("modal").style.display="none"; }
-
-// ===== STATS COUNTER =====
-function animate(id,end){ let start=0; let interval=setInterval(()=>{ start++; document.getElementById(id).innerText=start; if(start===end) clearInterval(interval); },50);}
-animate("exp",2); animate("projectsCount",5); animate("skillsCount",10);
-
-// ===== CURSOR GLOW =====
-document.addEventListener("mousemove", e => {
-    let glow = document.createElement("div");
-    glow.className = "glow";
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-    document.body.appendChild(glow);
-    setTimeout(()=>glow.remove(),300);
-});
-</script>
 </body>
 </html>
