@@ -4,238 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opinder Singh Gill - Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===== GLOBAL STYLES ===== */
-body {
+
+/* ===== GLOBAL ===== */
+* {
     margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
-    color: #fff;
-    line-height: 1.6;
 }
-a { color:#00ffff; text-decoration:none; }
-a:hover { text-decoration: underline; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(-45deg, #1e1e2f, #2e2e4f, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #fff;
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+@keyframes gradientBG {
+    0% {background-position:0%}
+    50% {background-position:100%}
+    100% {background-position:0%}
+}
 
 /* ===== HEADER ===== */
 header {
     text-align:center;
-    padding:50px 20px 20px;
+    padding:80px 20px;
+    animation: fadeUp 1s ease;
 }
-header h1 { font-size:2.5rem; margin:0; }
-header p { margin:5px 0; font-size:1.1rem; color:#ccc; }
+
+header h1 {
+    font-size:2.8rem;
+}
+
+header p {
+    color:#ccc;
+}
 
 /* ===== BUTTONS ===== */
 .button {
     display:inline-block;
-    margin:10px 5px;
+    margin:10px;
     padding:10px 20px;
-    border:2px solid #00ffff;
-    border-radius:5px;
-    color:#00ffff;
-    font-weight:bold;
-    transition: all 0.3s ease;
-}
-.button:hover {
-    background:#00ffff;
-    color:#1e1e2f;
-    transform: scale(1.05);
+    border-radius:25px;
+    border:2px solid cyan;
+    color:cyan;
+    transition:0.3s;
 }
 
-/* ===== SECTION STYLING ===== */
+.button:hover {
+    background:cyan;
+    color:black;
+    transform:scale(1.1);
+    box-shadow:0 0 15px cyan;
+}
+
+/* ===== SECTIONS ===== */
 section {
     max-width:900px;
-    margin:50px auto;
-    padding:20px;
-    background: rgba(30,30,50,0.85);
+    margin:40px auto;
+    padding:25px;
+    background: rgba(255,255,255,0.05);
     border-radius:15px;
-    box-shadow: 0 0 20px rgba(0,255,255,0.2);
-    animation: fadeUp 1s ease;
+    backdrop-filter: blur(10px);
 }
-section h2 {
-    border-bottom: 2px solid #00ffff;
-    padding-bottom:5px;
+
+/* SCROLL ANIMATION */
+.reveal {
+    opacity:0;
+    transform: translateY(40px);
+    transition:0.8s;
+}
+
+.reveal.active {
+    opacity:1;
+    transform: translateY(0);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    border-bottom:2px solid cyan;
+    margin-bottom:10px;
 }
 
 /* ===== CARDS ===== */
 .card {
     background: rgba(0,255,255,0.05);
-    margin:15px 0;
     padding:15px;
-    border-left: 4px solid #00ffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin:15px 0;
+    border-left:4px solid cyan;
+    border-radius:10px;
+    transition:0.3s;
 }
+
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px #00ffff;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:0 0 25px rgba(0,255,255,0.6);
 }
 
-/* ===== LISTS ===== */
-ul { padding-left:20px; }
-li { margin-bottom:8px; }
-
-/* ===== ANIMATIONS ===== */
+/* ===== ANIMATION ===== */
 @keyframes fadeUp {
-    from { opacity:0; transform: translateY(20px); }
-    to { opacity:1; transform: translateY(0); }
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
 /* ===== FOOTER ===== */
 footer {
     text-align:center;
-    padding:30px 10px;
-    font-size:0.9rem;
+    padding:20px;
     color:#aaa;
-    border-top:1px solid #00ffff;
 }
+
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>Opinder Singh Gill</h1>
     <p>IT Support & Network Technician | CCNA Certified</p>
-    <p>📍 Ottawa, ON</p>
-    <p>
-        🌐 <a href="https://opg1120.github.io/portfolio/" target="_blank">Portfolio</a> | 
-        💻 <a href="https://github.com/opg1120" target="_blank">GitHub</a>
-    </p>
+    <p>Ottawa, ON</p>
+
+    <a href="https://opg1120.github.io/portfolio/" target="_blank" class="button">Portfolio</a>
+    <a href="https://github.com/opg1120" target="_blank" class="button">GitHub</a>
 </header>
 
-<!-- PROFESSIONAL SUMMARY -->
-<section>
+<section class="reveal">
 <h2>Professional Summary</h2>
-<p>IT Support and Network Technician with hands-on experience in troubleshooting, network configuration, and system support. Experienced in supporting end users, managing devices, and maintaining reliable IT environments. Familiar with Active Directory concepts, virtualization, and Microsoft 365 tools, with growing experience in SharePoint and system administration. Strong problem-solving skills with a focus on improving system performance and reliability.</p>
+<p>IT Support and Network Technician with hands-on experience in troubleshooting, network configuration, and system support. Experienced in supporting end users, managing devices, and maintaining reliable IT environments.</p>
 </section>
 
-<!-- TECHNICAL SKILLS -->
-<section>
+<section class="reveal">
 <h2>Technical Skills</h2>
-<div class="card">
-<strong>System Administration:</strong> Active Directory (basic), Group Policy (basic), Windows environments
-</div>
-<div class="card">
-<strong>IT Support:</strong> Hardware, software, and connectivity troubleshooting, end-user support (Level 1/2)
-</div>
-<div class="card">
-<strong>Networking:</strong> TCP/IP, VLANs, DHCP, DNS, NAT, router/switch configuration
-</div>
-<div class="card">
-<strong>Virtualization:</strong> VMware, VirtualBox (lab environments, system simulation)
-</div>
-<div class="card">
-<strong>Microsoft 365:</strong> Teams, OneDrive, SharePoint (basic)
-</div>
-<div class="card">
-<strong>Security & Tools:</strong> Network segmentation, basic threat awareness, Wireshark, Nmap, Python (basic), Visio
-</div>
+
+<div class="card">System Administration: Active Directory, Group Policy, Windows</div>
+<div class="card">IT Support: Hardware, software, troubleshooting (L1/L2)</div>
+<div class="card">Networking: TCP/IP, VLANs, DHCP, DNS, NAT</div>
+<div class="card">Virtualization: VMware, VirtualBox</div>
+<div class="card">Microsoft 365: Teams, OneDrive, SharePoint</div>
+
 </section>
 
-<!-- PROFESSIONAL EXPERIENCE -->
-<section>
-<h2>Professional Experience</h2>
+<section class="reveal">
+<h2>Experience</h2>
 
 <div class="card">
-<strong>Regulvar Inc. – Electrical Assembler | Ottawa, ON | Oct 2025 – Present</strong>
-<ul>
-<li>Assembled and configured control panels and structured cabling systems.</li>
-<li>Interpreted technical schematics and ensured system accuracy before deployment.</li>
-<li>Identified and resolved technical issues, improving system reliability.</li>
-<li>Collaborated with technical teams to support system integration.</li>
-</ul>
+<strong>Regulvar Inc.</strong><br>
+Electrical Assembler (2025–Present)
 </div>
 
 <div class="card">
-<strong>Bell Canada – Network Technician | Ottawa, ON | Jul 2023 – May 2025</strong>
-<ul>
-<li>Provided Level 1/2 technical support by diagnosing and resolving network and connectivity issues.</li>
-<li>Configured routers, modems, and IP addressing for stable network performance.</li>
-<li>Performed troubleshooting across hardware, software, and network layers.</li>
-<li>Tested and validated network performance, ensuring reliability and uptime.</li>
-<li>Communicated technical solutions effectively to non-technical users.</li>
-</ul>
+<strong>Bell Canada</strong><br>
+Network Technician (2023–2025)
 </div>
 
-<div class="card">
-<strong>Apply Abroad Consultants – Administrative Clerk | India | Jun 2019 – Jan 2020</strong>
-<ul>
-<li>Managed documentation and maintained organized records.</li>
-<li>Supported operational workflows and communication processes.</li>
-</ul>
-</div>
 </section>
 
-<!-- PROJECTS -->
-<section>
+<section class="reveal">
 <h2>Projects</h2>
 
-<div class="card">
-<strong>Home Lab – System & Network Simulation</strong>
-<ul>
-<li>Built virtual lab environments using VMware to simulate network and system configurations.</li>
-<li>Practiced system administration tasks including user management and network setup.</li>
-<li>Tested configurations for performance, connectivity, and troubleshooting.</li>
-</ul>
-</div>
+<div class="card">Home Lab Network Simulation</div>
+<div class="card">Network Traffic Analysis</div>
+<div class="card">SharePoint Intranet Portal</div>
+<div class="card">Portfolio Website</div>
 
-<div class="card">
-<strong>Network Traffic Analysis</strong>
-<ul>
-<li>Used Wireshark and Nmap to analyze traffic patterns and perform network diagnostics.</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>SharePoint Intranet Portal (Concept Project)</strong>
-<ul>
-<li>Designed a company intranet using Microsoft 365 SharePoint concepts.</li>
-<li>Included document libraries, internal communication pages, and IT support resources.</li>
-<li>Focused on improving workflow efficiency and user accessibility.</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>Portfolio Website (GitHub Pages)</strong>
-<ul>
-<li>Developed and deployed a responsive portfolio using HTML and CSS.</li>
-<li>Showcases projects and technical skills.</li>
-<li><a href="https://opg1120.github.io/portfolio/" target="_blank">Visit Portfolio</a></li>
-</ul>
-</div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section>
-<h2>Certifications</h2>
-<ul>
-<li>Cisco Certified Network Associate (CCNA)</li>
-<li>WHMIS & Safety Training</li>
-</ul>
-</section>
-
-<!-- EDUCATION -->
-<section>
+<section class="reveal">
 <h2>Education</h2>
-<ul>
-<li>Post-Graduate Diploma – Wireless Information Networking | Sir Sandford Fleming College, ON | 2022</li>
-<li>Bachelor of Technology – Computer Science | Guru Nanak Dev University, India | 2019</li>
-</ul>
-</section>
-
-<!-- ADDITIONAL LEARNING -->
-<section>
-<h2>Additional Learning</h2>
-<ul>
-<li>Active Directory and Group Policy fundamentals</li>
-<li>Windows Server and system administration concepts</li>
-<li>Virtualization and infrastructure management</li>
-<li>Continuous learning in IT systems and cybersecurity</li>
-</ul>
+<p>Wireless Information Networking – Fleming College</p>
+<p>B.Tech Computer Science</p>
 </section>
 
 <footer>
-&copy; 2026 Opinder Singh Gill | Built with HTML & CSS | Hosted on GitHub Pages
+© 2026 Opinder Singh Gill
 </footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+    reveals.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add("active");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
