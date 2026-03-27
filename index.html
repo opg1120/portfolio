@@ -3,208 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opinder Singh Gill | IT Portfolio</title>
+<title>Opinder Singh Gill | Portfolio</title>
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
+body { background: #0a0a0a; color: #fff; overflow-x:hidden; transition: all 0.5s; }
+
+/* ===== PARTICLES ===== */
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+
+/* ===== LOADER ===== */
+#loader {
+    position: fixed; width: 100%; height: 100%;
+    background: #000; color: cyan;
+    display:flex; justify-content:center; align-items:center; z-index:9999;
+    font-size:2rem;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #1e293b, #2563eb);
-}
+/* ===== NAVBAR ===== */
+nav { display:flex; justify-content:space-between; padding:20px; background:#111; }
+nav a { color:#fff; text-decoration:none; margin:0 10px; }
+nav button { padding:5px 10px; cursor:pointer; }
 
-h1 {
-    font-size: 2.8em;
+/* ===== TERMINAL INTRO ===== */
+.terminal {
+    background:#111; color:lime; font-family:monospace;
+    padding:20px; width:80%; margin:40px auto; border-radius:10px;
+    animation: fadeIn 2s ease forwards;
 }
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
 
-.typing {
-    color: #38bdf8;
-    font-weight: bold;
-}
+/* ===== SKILLS ===== */
+#skills { padding:40px; text-align:center; }
+.skill { margin:20px auto; width:80%; }
+.bar { width:100%; background:#333; border-radius:10px; }
+.fill { height:12px; background:cyan; border-radius:10px; transition:1s; }
 
-/* NAV */
-nav a {
-    margin: 10px;
-    color: white;
-    text-decoration: none;
-}
+/* ===== STATS COUNTER ===== */
+#stats { display:flex; justify-content:center; margin:40px 0; }
+.stat { margin:20px; text-align:center; }
+.stat h2 { font-size:3rem; color:cyan; }
+.stat p { font-size:1rem; }
 
-/* GLASS CARD */
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
+/* ===== PROJECT CARDS ===== */
+#projects { display:flex; flex-wrap:wrap; justify-content:center; padding:40px; }
+.card { background:#111; margin:20px; width:300px; border-radius:10px; overflow:hidden; transition:0.3s; }
+.card:hover { transform: scale(1.05); box-shadow: 0 0 20px cyan; }
+.card img { width:100%; }
+.card h3 { padding:10px; }
+.card p { padding:0 10px 10px 10px; }
+.card .btn { display:block; margin:10px; padding:10px; text-align:center; background:cyan; color:#000; text-decoration:none; border-radius:5px; }
 
-section:hover {
-    transform: translateY(-5px);
-}
+/* ===== MODAL ===== */
+.modal { display:none; position:fixed; width:100%; height:100%; background: rgba(0,0,0,0.9); }
+.modal-content { background:#222; padding:20px; margin:10% auto; width:50%; border-radius:10px; }
+.modal-content span { float:right; cursor:pointer; color:red; font-size:1.5rem; }
 
-/* PROJECT CARDS */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+/* ===== TERMINAL & BODY ANIMATIONS ===== */
+.light { background:#fff; color:#000; }
+.light .fill { background:blue; }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
+/* ===== CURSOR GLOW ===== */
+.glow { position:fixed; width:10px; height:10px; background:cyan; border-radius:50%; pointer-events:none; }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* BUTTON */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 5px;
-    text-decoration: none;
-    margin: 10px;
-}
-
-.btn:hover {
-    background: #0ea5e9;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #1e293b;
-}
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){ #stats { flex-direction:column; } .card { width:80%; } }
 </style>
 </head>
 
 <body>
+<!-- LOADER -->
+<div id="loader">Loading Portfolio...</div>
 
-<header>
-    <h1>Opinder Singh Gill</h1>
-    <p>I am a <span class="typing"></span></p>
+<!-- PARTICLES -->
+<div id="particles-js"></div>
 
-    <nav>
-        <a href="#about">About</a>
+<!-- NAVBAR -->
+<nav>
+    <div>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <p>📞 873-662-4573 | 📧 opg1120@gmail.com</p>
-</header>
-
-<section id="about">
-    <h2><i class="fa-solid fa-user"></i> About Me</h2>
-    <p>
-        IT Support and Network Technician with CCNA certification and hands-on experience in troubleshooting hardware, software, and network systems. Skilled in Microsoft 365 and end-user support, with growing experience in SharePoint and automation.
-    </p>
-</section>
-
-<section id="skills">
-    <h2><i class="fa-solid fa-code"></i> Skills</h2>
-    <ul>
-        <li>IT Support & Troubleshooting</li>
-        <li>Microsoft 365 (Teams, OneDrive, SharePoint)</li>
-        <li>Networking (TCP/IP, VLANs, DHCP)</li>
-        <li>Wireshark, Nmap, VMware</li>
-        <li>HTML, CSS</li>
-    </ul>
-</section>
-
-<section id="projects">
-    <h2><i class="fa-solid fa-laptop-code"></i> Projects</h2>
-
-    <div class="projects">
-
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>Personal website built using HTML, CSS, and GitHub Pages.</p>
-        </div>
-
-        <div class="card">
-            <h3>Home Lab Network</h3>
-            <p>Simulated network using VMware for testing configurations.</p>
-        </div>
-
-        <div class="card">
-            <h3>Network Analysis</h3>
-            <p>Used Wireshark and Nmap to analyze traffic and scan networks.</p>
-        </div>
-
-        <div class="card">
-            <h3>SharePoint Learning</h3>
-            <p>Exploring SharePoint and workflow automation tools.</p>
-        </div>
-
+        <a href="https://github.com/opg1120" target="_blank">GitHub</a>
+        <a href="https://opg1120.github.io/portfolio/" target="_blank">Portfolio</a>
     </div>
+    <button onclick="toggleMode()">🌗</button>
+</nav>
+
+<!-- TERMINAL INTRO -->
+<div class="terminal">
+    <p>&gt; Initializing portfolio...</p>
+    <p>&gt; Loading skills...</p>
+    <p>&gt; Welcome, Recruiter 👋</p>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2>My Skills</h2>
+<div class="skill">
+    <p>Networking</p>
+    <div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+<div class="skill">
+    <p>IT Support</p>
+    <div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+<div class="skill">
+    <p>Virtualization</p>
+    <div class="bar"><div class="fill" style="width:75%"></div></div>
+</div>
 </section>
 
-<section id="contact" style="text-align:center;">
-    <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
-
-    <a href="Opinder_Singh_Gill_Resume.pdf" class="btn" download>
-        ⬇ Resume
-    </a>
-
-    <a href="https://github.com/opg1120" class="btn" target="_blank">
-        <i class="fa-brands fa-github"></i> GitHub
-    </a>
-
-    <a href="https://www.linkedin.com/in/opinder-gill" class="btn" target="_blank">
-    <i class="fa-brands fa-linkedin"></i> LinkedIn
-</a>
+<!-- STATS COUNTER -->
+<section id="stats">
+    <div class="stat"><h2 id="exp">0</h2><p>Years Experience</p></div>
+    <div class="stat"><h2 id="projectsCount">0</h2><p>Projects</p></div>
+    <div class="stat"><h2 id="skillsCount">0</h2><p>Skills</p></div>
 </section>
 
-<footer>
-    <p>© 2026 Opinder Singh Gill</p>
-</footer>
+<!-- PROJECTS -->
+<section id="projects">
+<div class="card">
+    <img src="network.jpg" alt="Home Lab Network">
+    <h3>Home Lab Network</h3>
+    <p>Simulated enterprise network using VMware.</p>
+    <a href="https://opg1120.github.io/portfolio/" target="_blank" class="btn">Live Demo</a>
+</div>
 
+<div class="card">
+    <img src="sharepoint.jpg" alt="SharePoint Portal">
+    <h3>SharePoint Intranet (Demo)</h3>
+    <p>Internal portal concept using Microsoft 365 and SharePoint.</p>
+    <a href="#" class="btn" onclick="openModal('sharepoint')">View Details</a>
+</div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()">&times;</span>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-// Typing animation
-const text = ["IT Support Specialist", "Network Technician", "Future Cybersecurity Analyst"];
-let i = 0, j = 0, current = "", isDeleting = false;
+// ===== PARTICLES =====
+particlesJS("particles-js", {
+  particles: { number: { value:60 }, size:{value:3}, move:{speed:2}, line_linked:{enable:true} }
+});
 
-function type() {
-    current = text[i];
-    if (isDeleting) {
-        document.querySelector(".typing").textContent = current.substring(0, j--);
-    } else {
-        document.querySelector(".typing").textContent = current.substring(0, j++);
-    }
+// ===== LOADER =====
+window.onload = () => { document.getElementById("loader").style.display="none"; };
 
-    if (!isDeleting && j === current.length) {
-        isDeleting = true;
-        setTimeout(type, 1000);
-    } else if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % text.length;
-        setTimeout(type, 200);
-    } else {
-        setTimeout(type, isDeleting ? 50 : 100);
-    }
+// ===== DARK/LIGHT MODE =====
+function toggleMode() { document.body.classList.toggle("light"); }
+
+// ===== MODAL =====
+function openModal(project){
+    const text = {
+        sharepoint: "This is a concept SharePoint intranet portal with document libraries and internal pages."
+    };
+    document.getElementById("modal-text").innerText = text[project];
+    document.getElementById("modal").style.display="block";
 }
+function closeModal(){ document.getElementById("modal").style.display="none"; }
 
-type();
+// ===== STATS COUNTER =====
+function animate(id,end){ let start=0; let interval=setInterval(()=>{ start++; document.getElementById(id).innerText=start; if(start===end) clearInterval(interval); },50);}
+animate("exp",2); animate("projectsCount",5); animate("skillsCount",10);
+
+// ===== CURSOR GLOW =====
+document.addEventListener("mousemove", e => {
+    let glow = document.createElement("div");
+    glow.className = "glow";
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+    document.body.appendChild(glow);
+    setTimeout(()=>glow.remove(),300);
+});
 </script>
-
 </body>
 </html>
