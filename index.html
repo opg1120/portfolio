@@ -24,8 +24,9 @@ html {
 body {
     background: linear-gradient(-45deg, #1e1e2f, #2e2e4f, #1a1a2e, #16213e);
     background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+    animation: gradientBG 12s ease infinite;
     color: #fff;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ===== BACKGROUND ANIMATION ===== */
@@ -39,7 +40,7 @@ body {
 header {
     text-align:center;
     padding:80px 20px;
-    animation: fadeUp 1s ease;
+    animation: fadeSmooth 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 header h1 {
@@ -58,14 +59,14 @@ header p {
     border-radius:25px;
     border:2px solid cyan;
     color:cyan;
-    transition:0.3s;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
     background:cyan;
     color:black;
-    transform:scale(1.1);
-    box-shadow:0 0 15px cyan;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,255,255,0.3);
 }
 
 /* ===== SECTIONS ===== */
@@ -78,15 +79,15 @@ section {
     backdrop-filter: blur(10px);
 }
 
-/* SCROLL ANIMATION */
+/* ===== SCROLL ANIMATION ===== */
 .reveal {
-    opacity:0;
-    transform: translateY(40px);
-    transition:0.8s;
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
-    opacity:1;
+    opacity: 1;
     transform: translateY(0);
 }
 
@@ -103,18 +104,31 @@ h2 {
     margin:15px 0;
     border-left:4px solid cyan;
     border-radius:10px;
-    transition:0.3s;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+    animation: floatSoft 6s ease-in-out infinite;
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow:0 0 25px rgba(0,255,255,0.6);
+    transform: translateY(-10px) scale(1.025);
+    box-shadow: 0 15px 40px rgba(0,255,255,0.4);
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeUp {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
+/* ===== FLOAT ANIMATION ===== */
+@keyframes floatSoft {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* ===== HEADER ANIMATION ===== */
+@keyframes fadeSmooth {
+    from {
+        opacity:0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== FOOTER ===== */
@@ -145,13 +159,11 @@ footer {
 
 <section class="reveal">
 <h2>Technical Skills</h2>
-
 <div class="card">System Administration: Active Directory, Group Policy, Windows</div>
 <div class="card">IT Support: Hardware, software, troubleshooting (L1/L2)</div>
 <div class="card">Networking: TCP/IP, VLANs, DHCP, DNS, NAT</div>
 <div class="card">Virtualization: VMware, VirtualBox</div>
 <div class="card">Microsoft 365: Teams, OneDrive, SharePoint</div>
-
 </section>
 
 <section class="reveal">
@@ -171,12 +183,10 @@ Network Technician (2023–2025)
 
 <section class="reveal">
 <h2>Projects</h2>
-
 <div class="card">Home Lab Network Simulation</div>
 <div class="card">Network Traffic Analysis</div>
 <div class="card">SharePoint Intranet Portal</div>
 <div class="card">Portfolio Website</div>
-
 </section>
 
 <section class="reveal">
@@ -190,16 +200,23 @@ Network Technician (2023–2025)
 </footer>
 
 <script>
+// ===== ULTRA SMOOTH SCROLL REVEAL =====
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
-    reveals.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            sec.classList.add("active");
+function revealOnScroll() {
+    reveals.forEach((el, index) => {
+        const top = el.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 80) {
+            setTimeout(() => {
+                el.classList.add("active");
+            }, index * 120);
         }
     });
-});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 </script>
 
 </body>
