@@ -5,137 +5,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opinder Singh Gill - Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== GLOBAL ===== */
+/* ===== VARIABLES ===== */
+:root {
+    --primary: cyan;
+    --bg-dark: #0f172a;
+    --card-bg: rgba(255,255,255,0.06);
+    --text-light: #e5e7eb;
+}
+
+/* ===== RESET ===== */
 * {
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(-45deg, #1e1e2f, #2e2e4f, #1a1a2e, #16213e);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-light);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    line-height: 1.6;
 }
 
-/* ===== BACKGROUND ANIMATION ===== */
-@keyframes gradientBG {
-    0% {background-position:0%}
-    50% {background-position:100%}
-    100% {background-position:0%}
+/* ===== CONTAINER ===== */
+main {
+    max-width: 950px;
+    margin: auto;
+    padding: 20px;
 }
 
 /* ===== HEADER ===== */
 header {
     text-align:center;
-    padding:80px 20px;
-    animation: fadeSmooth 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    padding:80px 20px 40px;
 }
 
 header h1 {
     font-size:2.8rem;
+    font-weight:700;
 }
 
 header p {
-    color:#ccc;
+    color:#9ca3af;
+    margin-top:5px;
 }
 
 /* ===== BUTTONS ===== */
 .button {
     display:inline-block;
-    margin:10px;
-    padding:10px 20px;
-    border-radius:25px;
-    border:2px solid cyan;
-    color:cyan;
-    transition: all 0.3s ease;
+    margin:15px 10px;
+    padding:10px 22px;
+    border-radius:30px;
+    border:2px solid var(--primary);
+    color:var(--primary);
+    text-decoration:none;
+    transition: all 0.25s ease;
 }
 
 .button:hover {
-    background:cyan;
-    color:black;
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,255,255,0.3);
+    background:var(--primary);
+    color:#000;
+    transform: translateY(-2px);
 }
 
 /* ===== SECTIONS ===== */
 section {
-    max-width:900px;
-    margin:40px auto;
+    margin:40px 0;
     padding:25px;
-    background: rgba(255,255,255,0.05);
-    border-radius:15px;
-    backdrop-filter: blur(10px);
-}
-
-/* ===== SCROLL ANIMATION ===== */
-.reveal {
-    opacity: 0;
-    transform: translateY(80px);
-    transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+    background: var(--card-bg);
+    border-radius:14px;
+    backdrop-filter: blur(8px);
 }
 
 /* ===== HEADINGS ===== */
 h2 {
-    border-bottom:2px solid cyan;
-    margin-bottom:10px;
+    margin-bottom:15px;
+    border-left:4px solid var(--primary);
+    padding-left:10px;
 }
 
 /* ===== CARDS ===== */
 .card {
     background: rgba(0,255,255,0.05);
     padding:15px;
-    margin:15px 0;
-    border-left:4px solid cyan;
+    margin:12px 0;
     border-radius:10px;
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
-    animation: floatSoft 6s ease-in-out infinite;
+    border-left:3px solid var(--primary);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.025);
-    box-shadow: 0 15px 40px rgba(0,255,255,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,255,255,0.25);
 }
 
-/* ===== FLOAT ANIMATION ===== */
-@keyframes floatSoft {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+/* ===== GRID (for skills/projects) ===== */
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:15px;
 }
 
-/* ===== HEADER ANIMATION ===== */
-@keyframes fadeSmooth {
-    from {
-        opacity:0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity:1;
-        transform: translateY(0);
-    }
+/* ===== REVEAL ANIMATION ===== */
+.reveal {
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity:1;
+    transform: translateY(0);
 }
 
 /* ===== FOOTER ===== */
 footer {
     text-align:center;
+    margin-top:40px;
     padding:20px;
-    color:#aaa;
+    color:#9ca3af;
+    font-size:0.9rem;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+    header h1 {
+        font-size:2rem;
+    }
 }
 
 </style>
@@ -152,18 +152,24 @@ footer {
     <a href="https://github.com/opg1120" target="_blank" class="button">GitHub</a>
 </header>
 
+<main>
+
 <section class="reveal">
 <h2>Professional Summary</h2>
-<p>IT Support and Network Technician with hands-on experience in troubleshooting, network configuration, and system support. Experienced in supporting end users, managing devices, and maintaining reliable IT environments.</p>
+<p>
+IT Support and Network Technician with experience in troubleshooting, system administration, and network configuration. Skilled in supporting users, managing devices, and maintaining stable IT environments.
+</p>
 </section>
 
 <section class="reveal">
 <h2>Technical Skills</h2>
-<div class="card">System Administration: Active Directory, Group Policy, Windows</div>
-<div class="card">IT Support: Hardware, software, troubleshooting (L1/L2)</div>
-<div class="card">Networking: TCP/IP, VLANs, DHCP, DNS, NAT</div>
-<div class="card">Virtualization: VMware, VirtualBox</div>
-<div class="card">Microsoft 365: Teams, OneDrive, SharePoint</div>
+<div class="grid">
+<div class="card">Active Directory & Group Policy</div>
+<div class="card">Hardware & Software Support (L1/L2)</div>
+<div class="card">Networking: TCP/IP, VLANs, DNS, DHCP</div>
+<div class="card">VMware & VirtualBox</div>
+<div class="card">Microsoft 365 (Teams, SharePoint)</div>
+</div>
 </section>
 
 <section class="reveal">
@@ -183,10 +189,12 @@ Network Technician (2023–2025)
 
 <section class="reveal">
 <h2>Projects</h2>
+<div class="grid">
 <div class="card">Home Lab Network Simulation</div>
 <div class="card">Network Traffic Analysis</div>
 <div class="card">SharePoint Intranet Portal</div>
 <div class="card">Portfolio Website</div>
+</div>
 </section>
 
 <section class="reveal">
@@ -195,28 +203,25 @@ Network Technician (2023–2025)
 <p>B.Tech Computer Science</p>
 </section>
 
+</main>
+
 <footer>
 © 2026 Opinder Singh Gill
 </footer>
 
 <script>
-// ===== ULTRA SMOOTH SCROLL REVEAL =====
-const reveals = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-    reveals.forEach((el, index) => {
-        const top = el.getBoundingClientRect().top;
-
-        if (top < window.innerHeight - 80) {
-            setTimeout(() => {
-                el.classList.add("active");
-            }, index * 120);
+/* ===== SMOOTH REVEAL (OPTIMIZED) ===== */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("active");
         }
     });
-}
+}, { threshold: 0.15 });
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 </script>
 
 </body>
